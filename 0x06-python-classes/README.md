@@ -1,6 +1,6 @@
 # Python - Classes and Objects
 
-##Introduction to new concept (OOP)
+## Introduction to new concept (OOP)
 Classes and objects are the two main aspects of object oriented programming. A **class** creates a new type where **objects** are **instances** of the class.
 
 In this project we tackle the following concepts;
