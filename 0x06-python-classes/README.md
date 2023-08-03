@@ -12,4 +12,6 @@ In this project we tackle the following concepts;
 * Inheritance: The ability of a class to inherit properties and behaviors from its parent class.
 * Polymorphism: The ability of different classes to be treated as objects of a common superclass.
 
-*This project is part of the ALX software engineering program 2023.* 
+This project is part of the ALX software engineering program 2023.
+
+Happy Coding!(:grinning:)  
