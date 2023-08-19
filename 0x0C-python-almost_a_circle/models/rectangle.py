@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class Rectangle which inherits from Base"""
-
-
 from models.base import Base
+
 
 class Rectangle(Base):
     """class Rectangle inherits from Base"""
@@ -11,11 +10,11 @@ class Rectangle(Base):
         x, y and id inherited from Base. id will be called with super() to
         be able to use it.
         """
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
 
     @property
     def width(self):
@@ -25,6 +24,10 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """setter method for width"""
+        if type(width) != int:
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
 
     @property
@@ -35,8 +38,11 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """setter method for height"""
+        if type(height) != int:
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
-
 
     @property
     def x(self):
@@ -46,8 +52,11 @@ class Rectangle(Base):
     @x.setter
     def x(self, x):
         """setter method for x"""
+        if type(x) != int:
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
-
 
     @property
     def y(self):
@@ -57,4 +66,8 @@ class Rectangle(Base):
     @y.setter
     def y(self, y):
         """setter method for y"""
+        if type(y) != int:
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
