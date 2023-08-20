@@ -76,4 +76,57 @@ class Rectangle(Base):
         """public method that returns the area value of the Rectangle
         instance"""
         return self.height * self.width
+    
+    def display(self):
+        """public method that prints in stdout the Rectangle
+        instance with the character #. x and y are not handled."""
+        if self.width == 0 or self.height == 0:
+            return
+        for _ in range(self.y):
+            print()
+        for len in range(self.height):
+            print(" " * self.x, end="")
+            print("#" * self.width, end="")
+            print()
+
+    def __str__(self):
+        """overriding the __str__ method to return [Rectangle] (<id>)
+        <x>/<y> - <width>/<height>"""
+        return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".format
+                (self.id, self.x, self.y, self.width, self.height))
+
+    def update(self, *args, **kwargs):
+        """public method that updates the class Rectangle by assigning
+        an argument to each attribute
+        Args:
+        *args (int): new arguments assigned to attributes
+            1st argument = id attribute
+            2nd argument = width attribute
+            3rd argument = height attribute
+            4th argument = x attribute
+            5th argument = y attribute
+        **kwargs (dict): key/value pairs of attributes
+        """
+        if args and len(args) != 0:
+            attr = 0
+            for arg in args:
+                if attr == 0:
+                    self.id = arg
+                elif attr == 1:
+                    self.width = arg
+                elif attr == 2:
+                    self.height = arg
+                elif attr == 3:
+                    self.x = arg
+                elif attr == 4:
+                    self.y = arg
+                attr += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+
+
+
 
