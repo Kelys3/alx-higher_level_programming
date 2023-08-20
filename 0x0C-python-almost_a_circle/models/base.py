@@ -2,6 +2,7 @@
 """This module describes a class Base which is going to be the base for
 all other classes
 """
+import json
 
 
 class Base:
@@ -18,3 +19,16 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """static method that returns the JSON string representation of
+        list_dictionaries
+        Args:
+            list_dictionaries: a list of dictionaries
+        Return: JSON string representation of list_dictionaries
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        else:
+            json.dumps(list_dictionaries)
