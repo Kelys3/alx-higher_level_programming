@@ -4,6 +4,9 @@ all other classes
 """
 import json
 import csv
+import tkinter
+import turtle
+
 
 class Base:
     """Defining the parent class. All other classes will inherit from it."""
@@ -85,11 +88,11 @@ class Base:
             with open(filename, "r") as file:
                 json_list = Base.from_json_string(file.read())
                 cls_instances = [cls.create(**cls_dict) for
-                        cls_dict in json_list]
+                                 cls_dict in json_list]
                 return cls_instances
         except FileNotFoundError:
             return []
-        
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
@@ -133,3 +136,36 @@ class Base:
         except Exception:
             pass
         return li
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares."""
+        turtle.Screen().screensize(800, 600)
+        turtle.Screen().title("Turtle Drawing")
+        turtle.speed(1)
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        t = turtle.Turtle()
+
+        for rectangle in list_rectangles:
+            t.penup()
+            t.goto(rectangle.x, rectangle.y)
+            t.pendown()
+            t.color("blue")
+            for _ in range(2):
+                t.forward(rectangle.width)
+                t.left(90)
+                t.forward(rectangle.height)
+                t.left(90)
+
+        for square in list_squares:
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            t.color("green")
+            for _ in range(4):
+                t.forward(square.width)
+                t.left(90)
+
+        t.hideturtle()
+        screen.mainloop()
