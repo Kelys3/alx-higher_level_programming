@@ -143,6 +143,7 @@ class Base:
         turtle.Screen().screensize(800, 600)
         turtle.Screen().title("Turtle Drawing")
         turtle.speed(1)
+        turtle.bgcolor("yellow")
         screen = turtle.Screen()
         screen.title("Drawing Rectangles and Squares")
         t = turtle.Turtle()
