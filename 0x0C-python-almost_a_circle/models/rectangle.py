@@ -76,7 +76,7 @@ class Rectangle(Base):
         """public method that returns the area value of the Rectangle
         instance"""
         return self.height * self.width
-    
+
     def display(self):
         """public method that prints in stdout the Rectangle
         instance with the character #. x and y are not handled."""
@@ -135,9 +135,3 @@ class Rectangle(Base):
                 "x": self.x,
                 "y": self.y
                 }
-                    
-
-
-
-
-
