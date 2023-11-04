@@ -11,8 +11,9 @@ url = sys.argv[1]
 req = urllib.request.Request(url)
 
 with urllib.request.urlopen(req) as response:
-    value = response.getheader('X-Request-Id')
-    print("{}".format(value))
+    value = response.headers.get("X-Request-Id")
+    if value is not None:
+        print("{}".format(value))
 
 
 if __name__ == "__main__":
