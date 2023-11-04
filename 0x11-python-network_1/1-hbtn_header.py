@@ -8,8 +8,9 @@ import sys
 import urllib.request
 
 url = sys.argv[1]
+req = urllib.request.Request(url)
 
-with urllib.request.urlopen(url) as response:
+with urllib.request.urlopen(req) as response:
     value = response.getheader('X-Request-Id')
     print("{}".format(value))
 
